@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit bootstrap="./Tests/bootstrap.php" colors="true">
     <php>
-        <!-- Change the following value to the path of your Guzzle installation
-          -- e.g. /Users/michael/projects/guzzle -->
-        <server name="GUZZLE" value="/path/to/guzzle" />
+        <!-- Add any application specific parameters here
+          -- e.g. <server name="API_USER" value="test" /> -->
     </php>
     <testsuites>
         <testsuite name="guzzle-service-${service.short_name}">

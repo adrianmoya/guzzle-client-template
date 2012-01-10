@@ -2,10 +2,9 @@
 
 namespace ${service.namespace};
 
-use Guzzle\Common\Inspector;
-use Guzzle\Http\Message\RequestInterface;
 use Guzzle\Service\Client;
 use Guzzle\Service\Description\XmlDescriptionBuilder;
+use Guzzle\Service\Inspector;
 
 class ${service.client_class} extends Client
 {
