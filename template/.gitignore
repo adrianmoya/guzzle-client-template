@@ -1,0 +1,5 @@
+.DS_STORE
+phpunit.xml
+coverage
+vendor
+composer.lock

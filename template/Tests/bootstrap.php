@@ -10,10 +10,23 @@ if (!file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'composer.lock')) {
 
 require_once 'PHPUnit/TextUI/TestRunner.php';
 
+// Register an autoloader for the client being tested
+spl_autoload_register(function($class) {
+    if (0 === strpos($class, '${service.namespace}')) {
+        $class = str_replace('${service.namespace}', '', $class);
+        if ('\\' != DIRECTORY_SEPARATOR) {
+            $class = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
+        } else {
+            $class = dirname(__DIR__) . DIRECTORY_SEPARATOR . $class . '.php';
+        }
+        if (file_exists($class)) {
+            require $class;
+        }
+    }
+});
+
 // Include the composer autoloader
 $loader = require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . '.composer' . DIRECTORY_SEPARATOR . 'autoload.php';
-// Register the Guzzle test namespace
-$loader->add('Guzzle\\Tests', __DIR__);
 
 // Register services with the GuzzleTestCase
 Guzzle\Tests\GuzzleTestCase::setMockBasePath(__DIR__ . DIRECTORY_SEPARATOR . 'mock');

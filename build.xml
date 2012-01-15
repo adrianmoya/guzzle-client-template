@@ -7,8 +7,8 @@
         <input propertyname="service.short_name" promptChar=":">Enter the short name of your client (e.g. guzzle-aws)</input>
         <input propertyname="service.version" promptChar=":" defaultValue="1.0.0">What version of the project is this?</input>
         <input propertyname="service.namespace" promptChar=":">Enter the root namespace of your client (e.g. Guzzle\Aws)</input>
+        <input propertyname="service.psr0" promptChar=":">Enter the PSR-0 loading path (e.g. Guzzle\\Aws)</input>
         <input propertyname="service.client_class" promptChar=":">Enter the name of your client class (e.g. UnfuddleClient)</input>
-        <input propertyname="service.psr0" promptChar=":">Enter the PSR-0 loading path (e.g. Guzzle/Aws)</input>
         <input propertyname="author.name" promptChar=":">Enter your name</input>
         <input propertyname="author.email" promptChar=":">Enter your email address</input>
 
