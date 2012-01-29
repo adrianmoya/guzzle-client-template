@@ -15,9 +15,9 @@ spl_autoload_register(function($class) {
     if (0 === strpos($class, '${service.namespace}')) {
         $class = str_replace('${service.namespace}', '', $class);
         if ('\\' != DIRECTORY_SEPARATOR) {
-            $class = dirname(__DIR__) . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
+            $class = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . '${service.rel_path}' . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
         } else {
-            $class = dirname(__DIR__) . DIRECTORY_SEPARATOR . $class . '.php';
+            $class = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . '${service.namespace}' . DIRECTORY_SEPARATOR . $class . '.php';
         }
         if (file_exists($class)) {
             require $class;
@@ -32,7 +32,7 @@ $loader = require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIREC
 Guzzle\Tests\GuzzleTestCase::setMockBasePath(__DIR__ . DIRECTORY_SEPARATOR . 'mock');
 
 Guzzle\Tests\GuzzleTestCase::setServiceBuilder(Guzzle\Service\ServiceBuilder::factory(array(
-    'test.${service.short_name}' => array(
+    'client' => array(
         'class' => '${service.namespace}\${service.client_class}'
     )
 )));

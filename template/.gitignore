@@ -1,5 +1,6 @@
-.DS_STORE
+.DS_Store
 phpunit.xml
-coverage
-vendor
 composer.lock
+composer.phar
+vendor
+*.phar

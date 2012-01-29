@@ -1,9 +1,8 @@
 {
-    "name": "${service.short_name}",
+    "name": "${service.packagist_name}",
     "type": "library",
     "description": "${service.name}",
     "keywords": ["Guzzle"],
-    "version": "${service.version}",
     "authors": [
         {
             "name": "${author.name}",
@@ -12,9 +11,9 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "guzzle/guzzle": ">=2.0.0"
+        "guzzle/guzzle": "*"
     },
     "autoload": {
-        "psr-0": { "${service.psr0}": "/" }
+        "psr-0": { "${service.psr0}": "/src" }
     }
 }
