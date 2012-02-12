@@ -12,6 +12,7 @@
                 <directory>./tests</directory>
                 <directory>./docs</directory>
                 <directory>./coverage</directory>
+                <directory>./vendor</directory>
             </exclude>
         </whitelist>
     </filter>
