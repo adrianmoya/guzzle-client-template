@@ -4,7 +4,7 @@ namespace ${service.namespace};
 
 use Guzzle\Service\Client;
 use Guzzle\Service\Inspector;
-use Guzzle\Service\Description\XmlDescriptionBuilder;
+use Guzzle\Service\Description\ServiceDescription;
 
 class ${service.client_class} extends Client
 {
@@ -28,7 +28,7 @@ class ${service.client_class} extends Client
         $client->setConfig($config);
 
         // Uncomment the following two lines to use an XML service description
-        // $client->setDescription(XmlDescriptionBuilder::build(__DIR__ . DIRECTORY_SEPARATOR . 'client.xml'));
+        // $client->setDescription(ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.xml'));
 
         return $client;
     }

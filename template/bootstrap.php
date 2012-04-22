@@ -4,7 +4,7 @@ error_reporting(E_ALL | E_STRICT);
 
 // Ensure that composer has installed all dependencies
 if (!file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'composer.lock')) {
-    die("Dependencies must be installed using composer:\n\ncomposer.phar install --install-suggests\n\n"
+    die("Dependencies must be installed using composer:\n\ncomposer.phar install --dev\n\n"
         . "See https://github.com/composer/composer/blob/master/README.md for help with installing composer\n");
 }
 
@@ -21,8 +21,11 @@ spl_autoload_register(function($class) {
         }
         if (file_exists($class)) {
             require $class;
+            return true;
         }
     }
+
+    return false;
 });
 
 // Include the composer autoloader
